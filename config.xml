@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <metadata>
+        <name>ConversationIA</name>
+        <type>plugin</type>
+        <creationDate>2025-01-06</creationDate>
+        <lastUpdate>2025-01-06</lastUpdate>
+        <author>LimeSurvey DSFR</author>
+        <authorUrl>https://github.com/betagouv/LimeSurvey-DSFR</authorUrl>
+        <version>0.1.0</version>
+        <license>GNU General Public License version 2 or later</license>
+        <description><![CDATA[Plugin permettant de transformer une question Texte long en conversation IA avec un LLM (Albert API).]]></description>
+    </metadata>
+    <compatibility>
+        <version>5</version>
+        <version>6</version>
+    </compatibility>
+</config>

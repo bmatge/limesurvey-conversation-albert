@@ -1,0 +1,197 @@
+/**
+ * ConversationIA - Styles DSFR pour l'interface de chat
+ */
+
+/* Container principal */
+.conversation-ia-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Zone des messages */
+.conversation-ia-messages {
+    height: 400px;
+    max-height: 50vh;
+    overflow-y: auto;
+    padding: 1rem;
+    background-color: var(--background-alt-grey);
+    border-radius: 0.25rem;
+    scroll-behavior: smooth;
+}
+
+/* Message individuel */
+.conversation-ia-message {
+    margin-bottom: 1rem;
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem;
+    max-width: 85%;
+    animation: messageAppear 0.3s ease-out;
+}
+
+@keyframes messageAppear {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Message utilisateur */
+.conversation-ia-message--user {
+    background-color: var(--background-action-low-blue-france);
+    margin-left: auto;
+    border-bottom-right-radius: 0.125rem;
+}
+
+/* Message assistant */
+.conversation-ia-message--assistant {
+    background-color: var(--background-default-grey);
+    margin-right: auto;
+    border-bottom-left-radius: 0.125rem;
+    border: 1px solid var(--border-default-grey);
+}
+
+/* En-tête du message (badge rôle) */
+.conversation-ia-message__header {
+    margin-bottom: 0.5rem;
+}
+
+/* Contenu du message */
+.conversation-ia-message__content {
+    line-height: 1.5;
+    word-wrap: break-word;
+}
+
+.conversation-ia-message__content p {
+    margin: 0 0 0.5rem 0;
+}
+
+.conversation-ia-message__content p:last-child {
+    margin-bottom: 0;
+}
+
+/* Zone de saisie */
+.conversation-ia-input-container {
+    padding: 1rem;
+    background-color: var(--background-default-grey);
+    border-radius: 0.25rem;
+    border: 1px solid var(--border-default-grey);
+}
+
+.conversation-ia-input {
+    resize: none;
+    min-height: 2.5rem;
+    max-height: 150px;
+    transition: height 0.1s ease;
+}
+
+/* Indicateur de chargement */
+.conversation-ia-loading {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1rem;
+    margin-top: 0.5rem;
+    background-color: var(--background-contrast-grey);
+    border-radius: 0.25rem;
+    color: var(--text-mention-grey);
+    font-style: italic;
+}
+
+.conversation-ia-loading .fr-icon-refresh-line {
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Messages système (erreur, fin) */
+.conversation-ia-error,
+.conversation-ia-ended {
+    margin-top: 1rem;
+}
+
+/* Accessibilité - focus visible */
+.conversation-ia-input:focus,
+.conversation-ia-send:focus,
+.conversation-ia-end:focus {
+    outline: 2px solid var(--border-active-blue-france);
+    outline-offset: 2px;
+}
+
+/* État désactivé */
+.conversation-ia-input:disabled {
+    background-color: var(--background-disabled-grey);
+    cursor: not-allowed;
+}
+
+/* Responsive */
+@media (max-width: 767px) {
+    .conversation-ia-messages {
+        height: 300px;
+        max-height: 40vh;
+    }
+
+    .conversation-ia-message {
+        max-width: 95%;
+    }
+
+    .fr-btns-group--inline {
+        flex-direction: column;
+    }
+
+    .fr-btns-group--inline .fr-btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* Mode sombre (si activé via DSFR) */
+[data-fr-theme="dark"] .conversation-ia-messages {
+    background-color: var(--background-alt-grey);
+}
+
+[data-fr-theme="dark"] .conversation-ia-message--assistant {
+    background-color: var(--background-elevated-grey);
+}
+
+/* Scrollbar personnalisée */
+.conversation-ia-messages::-webkit-scrollbar {
+    width: 8px;
+}
+
+.conversation-ia-messages::-webkit-scrollbar-track {
+    background: var(--background-alt-grey);
+    border-radius: 4px;
+}
+
+.conversation-ia-messages::-webkit-scrollbar-thumb {
+    background: var(--border-default-grey);
+    border-radius: 4px;
+}
+
+.conversation-ia-messages::-webkit-scrollbar-thumb:hover {
+    background: var(--border-active-blue-france);
+}
+
+/* Helper class */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
